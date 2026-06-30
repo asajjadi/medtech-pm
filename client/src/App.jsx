@@ -38,7 +38,6 @@ export default function App() {
       setItems(await api.getItems(active));
       setLoaded(true);
     })();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const currentProject = projects.find((p) => p.id === currentProjectId);
