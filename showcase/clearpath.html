@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ClearPath QMS — a guided tool that teaches medical device project management by doing. A case study by Utmost Connect." />
+    <title>ClearPath QMS — Case Study | Utmost Connect</title>
+    <style>
+      :root {
+        --ink: #16202e;
+        --muted: #5a6473;
+        --accent: #1d54d4;
+        --accent-soft: #e7f0fd;
+        --bg: #f6f8fc;
+        --border: #e2e7f0;
+        --radius: 14px;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.6;
+      }
+      a { color: var(--accent); }
+      .wrap { max-width: 920px; margin: 0 auto; padding: 0 24px; }
+
+      /* Header */
+      .topbar { background: #fff; border-bottom: 1px solid var(--border); }
+      .topbar .wrap { display: flex; align-items: center; justify-content: space-between; padding: 16px 24px; }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+      .mark { width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(150deg, #2f7bf0, #1d54d4); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 800; }
+      .back { font-size: 14px; text-decoration: none; color: var(--muted); }
+
+      /* Hero */
+      .hero { background: linear-gradient(160deg, #ffffff, var(--accent-soft)); border-bottom: 1px solid var(--border); }
+      .hero .wrap { padding: 64px 24px 56px; }
+      .eyebrow { color: var(--accent); font-weight: 600; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; }
+      h1 { font-size: 40px; line-height: 1.15; margin: 10px 0 14px; }
+      .lede { font-size: 19px; color: var(--muted); max-width: 680px; }
+      .cta-row { margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn { display: inline-block; padding: 12px 20px; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 15px; }
+      .btn-primary { background: var(--accent); color: #fff; }
+      .btn-ghost { background: #fff; color: var(--ink); border: 1px solid var(--border); }
+
+      section { padding: 52px 0; border-bottom: 1px solid var(--border); }
+      h2 { font-size: 26px; margin: 0 0 6px; }
+      .section-sub { color: var(--muted); margin: 0 0 28px; }
+
+      .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+      .card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 22px; }
+      .card .ico { font-size: 22px; }
+      .card h3 { margin: 10px 0 6px; font-size: 16px; }
+      .card p { margin: 0; color: var(--muted); font-size: 14px; }
+
+      .shot { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 14px; text-align: center; color: var(--muted); font-size: 13px; }
+      .shot img { width: 100%; border-radius: 8px; display: block; }
+      .shot-ph { height: 260px; display: flex; align-items: center; justify-content: center; background: repeating-linear-gradient(45deg, #f1f4fa, #f1f4fa 12px, #eaeff7 12px, #eaeff7 24px); border-radius: 8px; }
+
+      .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+      .pill { background: var(--accent-soft); color: var(--accent); border-radius: 999px; padding: 6px 14px; font-size: 13px; font-weight: 600; }
+
+      .callout { background: var(--accent); color: #fff; border-radius: var(--radius); padding: 36px; text-align: center; }
+      .callout h2 { color: #fff; }
+      .callout p { color: #dce7fb; max-width: 560px; margin: 6px auto 22px; }
+      .callout .btn-primary { background: #fff; color: var(--accent); }
+
+      footer { padding: 30px 0 50px; color: var(--muted); font-size: 13px; text-align: center; }
+      .disclaimer { font-size: 12px; color: #9aa3b2; max-width: 680px; margin: 14px auto 0; }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="wrap">
+        <div class="brand"><span class="mark">C</span> ClearPath QMS</div>
+        <!-- Update href to your Projects page -->
+        <a class="back" href="/index.html#projects">← Back to Projects</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Case Study · Utmost Connect</div>
+        <h1>Learn medical device project management by doing.</h1>
+        <p class="lede">
+          ClearPath QMS is a guided project-management tool for people new to medical device development. It pairs a
+          real project board with an AI coach and in-context learning, so a newcomer can run a device project end-to-end
+          while the tool teaches the "why" — design controls, ISO/IEC standards, risk management, and regulatory
+          submissions — as they go.
+        </p>
+        <div class="cta-row">
+          <!-- Once deployed, point this at the live demo URL -->
+          <a class="btn btn-primary" href="#features">Explore the features</a>
+          <a class="btn btn-ghost" href="/index.html#contact">Talk to Utmost Connect</a>
+        </div>
+      </div>
+    </div>
+
+    <section id="problem">
+      <div class="wrap">
+        <h2>The problem it solves</h2>
+        <p class="section-sub">Breaking into medtech PM is hard — the regulated vocabulary is a wall.</p>
+        <p style="max-width: 720px; color: var(--muted); font-size: 16px;">
+          A capable project manager moving into medical devices suddenly faces ISO 13485, design controls, ISO 14971
+          risk management, 510(k) submissions, and traceability — with no guide. ClearPath QMS turns that learning curve
+          into a guided workflow: you build a real project, and the tool explains each regulated concept exactly when
+          you need it.
+        </p>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="wrap">
+        <h2>What it does</h2>
+        <p class="section-sub">A tool you learn <em>through</em> — every screen does double duty.</p>
+        <div class="grid">
+          <div class="card"><div class="ico">🎓</div><h3>Guided onboarding</h3><p>A welcome flow walks through the 7-phase device lifecycle and scaffolds a starter project to learn from.</p></div>
+          <div class="card"><div class="ico">💬</div><h3>AI Coach</h3><p>Ask plain-language questions ("What's a 510(k)?") and get mentor-style answers grounded in your actual project.</p></div>
+          <div class="card"><div class="ico">📊</div><h3>Phase readiness</h3><p>Gap analysis shows the standard deliverables each phase needs — and what you're still missing.</p></div>
+          <div class="card"><div class="ico">🔗</div><h3>Requirements traceability</h3><p>Link design inputs → outputs → verification, and flag coverage gaps the way auditors do.</p></div>
+          <div class="card"><div class="ico">📋</div><h3>Board, timeline & glossary</h3><p>Manage tasks across all phases, with an in-context glossary that defines the jargon.</p></div>
+          <div class="card"><div class="ico">🗂️</div><h3>Audit trail</h3><p>Every change is recorded append-only with who/what/when — a step toward 21 CFR Part 11 record-keeping.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="screens">
+      <div class="wrap">
+        <h2>A look inside</h2>
+        <p class="section-sub">Replace the placeholders below with screenshots of the running app.</p>
+        <div class="grid">
+          <div class="shot"><div class="shot-ph">Screenshot: project board</div><div style="margin-top:8px">The phase-based board</div></div>
+          <div class="shot"><div class="shot-ph">Screenshot: AI Coach</div><div style="margin-top:8px">The AI Coach answering a question</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tech">
+      <div class="wrap">
+        <h2>How it's built</h2>
+        <p class="section-sub">A modern, pragmatic stack — and a thoughtful approach to AI.</p>
+        <div class="pills">
+          <span class="pill">React + Vite</span>
+          <span class="pill">Node / Express</span>
+          <span class="pill">Swappable LLM providers</span>
+          <span class="pill">Local AI (Ollama) — zero cost</span>
+          <span class="pill">Append-only audit trail</span>
+          <span class="pill">Autonomous agent (tool-use)</span>
+        </div>
+        <p style="margin-top: 20px; color: var(--muted); font-size: 15px; max-width: 720px;">
+          The AI runs on a free local model by default, with the option to switch to a hosted model for higher quality —
+          demonstrating cost-aware architecture. An optional autonomous agent can review the board and maintain it via
+          an LLM tool-use loop.
+        </p>
+      </div>
+    </section>
+
+    <section style="border-bottom: none;">
+      <div class="wrap">
+        <div class="callout">
+          <h2>Built by Utmost Connect</h2>
+          <p>Engineering depth, clinical insight, and execution that delivers — applied to the tools that move medical device programs forward.</p>
+          <a class="btn btn-primary" href="/index.html#contact">Let's talk about your next project</a>
+        </div>
+        <p class="disclaimer">
+          ClearPath QMS is an educational tool. Its guidance and AI responses support learning and are not regulatory,
+          legal, or compliance advice. Always confirm requirements against current standards and your organization's
+          Quality Management System.
+        </p>
+      </div>
+    </section>
+
+    <footer>© <span id="yr"></span> Utmost Connect · ClearPath QMS case study</footer>
+    <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+  </body>
+</html>
