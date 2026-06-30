@@ -1,0 +1,13 @@
+[
+  { "id": "a1b2c3", "title": "User needs & intended use definition", "phase": "concept", "status": "done", "risk": "low", "owner": "PM", "start": "2026-04-30", "due": "2026-05-15" },
+  { "id": "a1b2c4", "title": "Competitive & IP landscape review", "phase": "concept", "status": "done", "risk": "low", "owner": "RA", "start": "2026-05-02", "due": "2026-05-20" },
+  { "id": "a1b2c5", "title": "Design input requirements (DIR)", "phase": "design_input", "status": "in_progress", "risk": "med", "owner": "Eng", "start": "2026-05-20", "due": "2026-06-19" },
+  { "id": "a1b2c6", "title": "Risk management plan (ISO 14971)", "phase": "design_input", "status": "in_progress", "risk": "high", "owner": "QA", "start": "2026-05-25", "due": "2026-06-24" },
+  { "id": "a1b2c7", "title": "Mechanical concept CAD & tolerancing", "phase": "design_output", "status": "backlog", "risk": "med", "owner": "Eng", "start": "2026-06-24", "due": "2026-07-19" },
+  { "id": "a1b2c8", "title": "DFMEA on critical subassemblies", "phase": "design_output", "status": "backlog", "risk": "high", "owner": "Eng", "start": "2026-06-29", "due": "2026-07-24" },
+  { "id": "a1b2c9", "title": "V&V test protocol authoring", "phase": "vv", "status": "backlog", "risk": "med", "owner": "QA", "start": "2026-07-19", "due": "2026-08-13" },
+  { "id": "a1b2ca", "title": "Biocompatibility testing (ISO 10993)", "phase": "vv", "status": "backlog", "risk": "high", "owner": "RA", "start": "2026-07-24", "due": "2026-08-28" },
+  { "id": "a1b2cb", "title": "Process validation (IQ/OQ/PQ)", "phase": "transfer", "status": "backlog", "risk": "med", "owner": "Mfg", "start": "2026-08-18", "due": "2026-09-17" },
+  { "id": "a1b2cc", "title": "510(k) submission package", "phase": "regulatory", "status": "backlog", "risk": "high", "owner": "RA", "start": "2026-08-28", "due": "2026-10-02" },
+  { "id": "a1b2cd", "title": "Pilot production run", "phase": "production", "status": "backlog", "risk": "low", "owner": "Mfg", "start": "2026-09-27", "due": "2026-10-17" }
+]

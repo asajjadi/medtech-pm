@@ -1,0 +1,12 @@
+node_modules/
+.claude/settings.local.json
+.env
+.env.local
+dist/
+build/
+*.log
+.DS_Store
+server/data/*.json
+server/data/*.jsonl
+server/data/*.tmp
+!server/data/items.seed.json
