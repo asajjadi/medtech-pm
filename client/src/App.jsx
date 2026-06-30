@@ -12,7 +12,7 @@ import Onboarding from "./components/Onboarding.jsx";
 import Glossary from "./components/Glossary.jsx";
 import Toaster from "./components/Toaster.jsx";
 import NameProjectModal from "./components/NameProjectModal.jsx";
-import { api } from "./lib/api.js";
+import { api, DEMO_MODE } from "./lib/api.js";
 import { starterItems } from "./lib/guide.js";
 import { toast } from "./lib/toast.js";
 import { exportCsv, printReport } from "./lib/export.js";
@@ -115,6 +115,13 @@ export default function App() {
 
   return (
     <div style={{ maxWidth: 980, margin: "0 auto", padding: "1.5rem 1.5rem 3rem" }}>
+      {DEMO_MODE && (
+        <div style={{ background: "var(--bg-accent)", border: "0.5px solid var(--border-accent)", borderRadius: 10, padding: "8px 14px", marginBottom: 16, fontSize: 13, color: "var(--text-accent)", textAlign: "center" }}>
+          🔎 <strong>Interactive demo</strong> — runs entirely in your browser. Add/edit anything (saved locally); AI
+          responses are sample text. The full version uses a live AI coach.
+        </div>
+      )}
+
       {/* Header / branding */}
       <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>

@@ -1,4 +1,9 @@
+import { demoApi } from "./demoApi.js";
+
 const BASE = "/api";
+
+// Demo mode (VITE_DEMO_MODE=true) runs entirely in the browser with no backend.
+export const DEMO_MODE = import.meta.env.VITE_DEMO_MODE === "true";
 
 async function request(path, options = {}) {
   const res = await fetch(`${BASE}${path}`, {
@@ -13,7 +18,7 @@ async function request(path, options = {}) {
   return res.json();
 }
 
-export const api = {
+const realApi = {
   getItems: (projectId) => request(projectId ? `/items?projectId=${encodeURIComponent(projectId)}` : "/items"),
   createItem: (item) => request("/items", { method: "POST", body: JSON.stringify(item) }),
   getProjects: () => request("/projects"),
@@ -27,3 +32,5 @@ export const api = {
   analyze: () => request("/ai/analyze", { method: "POST" }),
   coach: (question) => request("/ai/coach", { method: "POST", body: JSON.stringify({ question }) }),
 };
+
+export const api = DEMO_MODE ? demoApi : realApi;
