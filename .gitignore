@@ -12,3 +12,6 @@ server/data/*.json
 server/data/*.jsonl
 server/data/*.tmp
 !server/data/items.seed.json
+
+# Unrelated nested project
+/higgsfield-client/
