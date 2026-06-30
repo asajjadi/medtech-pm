@@ -1,4 +1,4 @@
-# MedTech PM — learn medical device project management by doing
+# ClearPath QMS — learn medical device project management by doing
 
 A guided project-management tool for people **new to medical device development**. It pairs a
 real project board with an AI **Coach** and in-context learning, so a newcomer with general PM
@@ -30,7 +30,7 @@ controls, ISO/IEC standards, risk management, regulatory submissions — as they
 ## Project structure
 
 ```
-medtech-pm/
+clearpath/
 ├── client/                React frontend (Vite)
 │   └── src/
 │       ├── components/     Board, Timeline, Coach, Onboarding, Glossary, ItemModal, …

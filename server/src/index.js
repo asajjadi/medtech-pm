@@ -34,7 +34,7 @@ app.post("/api/agent/run-now", async (req, res) => {
 app.get("/api/health", (req, res) => res.json({ ok: true }));
 
 app.listen(PORT, () => {
-  console.log(`medtech-pm server listening on http://localhost:${PORT}`);
+  console.log(`ClearPath QMS server listening on http://localhost:${PORT}`);
   if (process.env.ENABLE_AGENT === "true") {
     startAgentScheduler();
   } else {

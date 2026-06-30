@@ -111,9 +111,9 @@ export default function App() {
       {/* Header / branding */}
       <header style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <div className="brand-mark">+</div>
+          <div className="brand-mark">C</div>
           <div>
-            <div style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.1 }}>MedTech PM</div>
+            <div style={{ fontSize: 17, fontWeight: 600, lineHeight: 1.1 }}>ClearPath QMS</div>
             <div style={{ fontSize: 12, color: "var(--text-secondary)" }}>Learn medical device PM by doing</div>
           </div>
         </div>
