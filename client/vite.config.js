@@ -9,4 +9,8 @@ export default defineConfig({
       "/api": "http://localhost:3001",
     },
   },
+  // Allow tunnel/preview hosts (e.g. *.trycloudflare.com) so a public demo can be served.
+  preview: {
+    allowedHosts: true,
+  },
 });
