@@ -4,6 +4,7 @@ import PhaseRail from "./components/PhaseRail.jsx";
 import PhaseGuide from "./components/PhaseGuide.jsx";
 import Board from "./components/Board.jsx";
 import Timeline from "./components/Timeline.jsx";
+import Traceability from "./components/Traceability.jsx";
 import ItemModal from "./components/ItemModal.jsx";
 import AiPanel from "./components/AiPanel.jsx";
 import Coach from "./components/Coach.jsx";
@@ -14,6 +15,7 @@ import NameProjectModal from "./components/NameProjectModal.jsx";
 import { api } from "./lib/api.js";
 import { starterItems } from "./lib/guide.js";
 import { toast } from "./lib/toast.js";
+import { exportCsv, printReport } from "./lib/export.js";
 
 export default function App() {
   const [projects, setProjects] = useState([]);
@@ -101,6 +103,12 @@ export default function App() {
     setItems((prev) => [...prev, item]);
   }
 
+  async function createDeliverable(phase, title) {
+    const created = await api.createItem({ title, phase, projectId: currentProjectId });
+    setItems((prev) => [...prev, created]);
+    toast(`Added "${title}"`);
+  }
+
   if (!loaded) {
     return <div style={{ padding: 40, color: "var(--text-secondary)" }}>Loading…</div>;
   }
@@ -149,32 +157,39 @@ export default function App() {
       <AiPanel projectId={currentProjectId} onItemsAdded={handleItemsAdded} />
       <PhaseRail items={items} activePhase={activePhase} onSelect={setActivePhase} />
 
-      {activePhase !== "all" && <PhaseGuide phaseId={activePhase} />}
+      {activePhase !== "all" && <PhaseGuide phaseId={activePhase} items={items} onAddDeliverable={createDeliverable} />}
 
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, gap: 8, flexWrap: "wrap" }}>
         <div style={{ display: "flex", border: "0.5px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden" }}>
-          <button
-            style={{ borderRadius: 0, border: "none", background: view === "board" ? "var(--bg-accent)" : "var(--surface-2)", color: view === "board" ? "var(--text-accent)" : "var(--text-primary)" }}
-            onClick={() => setView("board")}
-          >
-            Board
-          </button>
-          <button
-            style={{ borderRadius: 0, border: "none", background: view === "timeline" ? "var(--bg-accent)" : "var(--surface-2)", color: view === "timeline" ? "var(--text-accent)" : "var(--text-primary)" }}
-            onClick={() => setView("timeline")}
-          >
-            Timeline
-          </button>
+          {[
+            ["board", "Board"],
+            ["timeline", "Timeline"],
+            ["trace", "Traceability"],
+          ].map(([id, label]) => (
+            <button
+              key={id}
+              style={{ borderRadius: 0, border: "none", background: view === id ? "var(--bg-accent)" : "var(--surface-2)", color: view === id ? "var(--text-accent)" : "var(--text-primary)" }}
+              onClick={() => setView(id)}
+            >
+              {label}
+            </button>
+          ))}
         </div>
-        <button className="primary" onClick={() => setModalState({ item: null })}>+ New item</button>
+        <div style={{ display: "flex", gap: 8 }}>
+          <button className="ghost" disabled={!items.length} onClick={() => exportCsv(items, currentProject?.name)}>⬇ CSV</button>
+          <button className="ghost" disabled={!items.length} onClick={() => printReport(items, currentProject?.name)}>🖨 Report</button>
+          <button className="primary" onClick={() => setModalState({ item: null })}>+ New item</button>
+        </div>
       </div>
 
       {items.length === 0 ? (
         <EmptyState onAdd={() => setModalState({ item: null })} onGuide={() => setShowGuide(true)} />
       ) : view === "board" ? (
         <Board items={visibleItems} onSelectItem={(item) => setModalState({ item })} />
-      ) : (
+      ) : view === "timeline" ? (
         <Timeline items={visibleItems} onSelectItem={(item) => setModalState({ item })} />
+      ) : (
+        <Traceability items={items} />
       )}
 
       {/* Disclaimer */}
@@ -188,6 +203,7 @@ export default function App() {
         <ItemModal
           item={modalState.item}
           defaultPhase={activePhase}
+          allItems={items}
           onSave={handleSave}
           onDelete={handleDelete}
           onClose={() => setModalState(null)}

@@ -35,6 +35,9 @@ router.post("/", async (req, res) => {
     start: body.start || new Date().toISOString().slice(0, 10),
     due: body.due || new Date().toISOString().slice(0, 10),
     projectId: body.projectId || DEFAULT_PROJECT_ID,
+    notes: body.notes || "",
+    checklist: Array.isArray(body.checklist) ? body.checklist : [],
+    tracesTo: Array.isArray(body.tracesTo) ? body.tracesTo : [],
   };
   await addItem(item, actorOf(req));
   res.status(201).json(item);

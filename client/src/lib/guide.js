@@ -54,6 +54,49 @@ export const LIFECYCLE = [
   },
 ];
 
+// Standard deliverables expected in each phase. Used for the readiness/gap
+// analysis: an item "satisfies" a deliverable if its title contains a keyword.
+export const PHASE_DELIVERABLES = {
+  concept: [
+    { label: "User needs & intended use", keywords: ["user need", "intended use"] },
+    { label: "Market / competitive review", keywords: ["market", "competit", "landscape"] },
+  ],
+  design_input: [
+    { label: "Design input requirements", keywords: ["design input", "requirement", "dir"] },
+    { label: "Risk management plan (ISO 14971)", keywords: ["risk management", "14971", "risk plan"] },
+  ],
+  design_output: [
+    { label: "Design outputs (specs/drawings)", keywords: ["design output", "spec", "drawing", "cad"] },
+    { label: "Design FMEA (DFMEA)", keywords: ["dfmea", "fmea", "failure mode"] },
+  ],
+  vv: [
+    { label: "V&V test protocols", keywords: ["v&v", "verification", "validation", "test protocol"] },
+    { label: "Biocompatibility (ISO 10993)", keywords: ["biocompat", "10993"] },
+  ],
+  transfer: [
+    { label: "Process validation (IQ/OQ/PQ)", keywords: ["process validation", "iq", "oq", "pq", "transfer"] },
+  ],
+  regulatory: [
+    { label: "Regulatory submission (510(k)/CE)", keywords: ["510", "submission", "ce mark", "regulatory", "pma"] },
+  ],
+  production: [
+    { label: "Pilot / production run", keywords: ["pilot", "production run", "manufactur"] },
+  ],
+};
+
+// For a phase, return each deliverable with whether the project's items satisfy it.
+export function phaseReadiness(phaseId, items) {
+  const deliverables = PHASE_DELIVERABLES[phaseId] || [];
+  const titles = items.filter((i) => i.phase === phaseId).map((i) => i.title.toLowerCase());
+  const checked = deliverables.map((d) => ({
+    label: d.label,
+    met: titles.some((t) => d.keywords.some((k) => t.includes(k))),
+  }));
+  const metCount = checked.filter((c) => c.met).length;
+  const percent = deliverables.length ? Math.round((metCount / deliverables.length) * 100) : 100;
+  return { items: checked, metCount, total: deliverables.length, percent };
+}
+
 // A curated starter project: the standard backbone every medtech project needs,
 // so a newcomer learns by working a real (if generic) plan instead of a blank page.
 export function starterItems() {
