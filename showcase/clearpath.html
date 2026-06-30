@@ -90,8 +90,9 @@
           submissions — as they go.
         </p>
         <div class="cta-row">
-          <!-- Once deployed, point this at the live demo URL -->
-          <a class="btn btn-primary" href="#features">Explore the features</a>
+          <!-- Shown only once you set DEMO_URL at the bottom of this file -->
+          <a class="btn btn-primary" id="demo-link" href="#" style="display:none">Try the live demo →</a>
+          <a class="btn btn-ghost" href="#features">Explore the features</a>
           <a class="btn btn-ghost" href="/index.html#contact">Talk to Utmost Connect</a>
         </div>
       </div>
@@ -172,6 +173,19 @@
     </section>
 
     <footer>© <span id="yr"></span> Utmost Connect · ClearPath QMS case study</footer>
-    <script>document.getElementById("yr").textContent = new Date().getFullYear();</script>
+    <script>
+      // ┌─────────────────────────────────────────────────────────────┐
+      // │  PASTE YOUR LIVE DEMO URL HERE when you have it (Vercel/      │
+      // │  Netlify). Leave "" to keep the demo button hidden.          │
+      // └─────────────────────────────────────────────────────────────┘
+      const DEMO_URL = "";
+
+      if (DEMO_URL) {
+        const link = document.getElementById("demo-link");
+        link.href = DEMO_URL;
+        link.style.display = "inline-block";
+      }
+      document.getElementById("yr").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>

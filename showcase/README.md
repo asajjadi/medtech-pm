@@ -36,11 +36,14 @@ The page has two placeholder boxes under "A look inside." To replace them with r
      <div style="margin-top:8px">The phase-based board</div></div>
    ```
 
-## Adding a live demo button (after deployment)
+## Turning on the live demo button (after deployment)
 
-Once the app is deployed (see the project roadmap), add a "Try the live demo" button in the hero
-`.cta-row`:
-```html
-<a class="btn btn-primary" href="https://your-demo-url">Try the live demo →</a>
+The page already has a hidden "Try the live demo →" button. To switch it on once you have a demo
+URL, edit **one line** near the bottom of `clearpath.html`:
+
+```js
+const DEMO_URL = "";   // ← paste your demo URL here, e.g. "https://clearpath.netlify.app"
 ```
-A live, clickable demo is far more compelling than a static page — it's the recommended next step.
+
+Set it and the button appears automatically; leave it empty and the button stays hidden. No other
+changes needed. A live, clickable demo is far more compelling than a static page.
